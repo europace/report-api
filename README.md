@@ -43,7 +43,7 @@ Die Arbeitsweise ist bei allen angebundenen Reporttypen dieselbe:
 
 #### Anforderungen
 
-* Das OAuth2 Token benötigt den Scope `reporting:rohdaten:lesen`
+* Das OAuth2 Token benötigt den Scope `report:rohdaten:lesen`
 * Das Token muss auf die angefragte `partnerId` zugreifen dürfen (Hierarchie der Plakette)
 
 #### Beispiel
@@ -81,7 +81,7 @@ Die ausgegebene `Location` zeigt auf den Endpunkt um nach den Ergebnisdaten anzu
 
 #### Anforderungen
 
-* Das OAuth2 Token benötigt den Scope `reporting:produktanbieterreport:lesen`
+* Das OAuth2 Token benötigt den Scope `report:produktanbieter:lesen`
 * Übernahmerecht auf den Produktanbeiter muss im OAuth2 Token abgebildet sein
 
 #### Beispiel
