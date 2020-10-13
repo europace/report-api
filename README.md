@@ -8,10 +8,10 @@ Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
 ![Privatkredit](https://img.shields.io/badge/-Privatkredit-lightblue)
 
 [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api)
-[![YAML](https://img.shields.io/badge/{}-YAML-green)](https://github.com/europace/report-api/report-api.yaml)
+[![YAML](https://img.shields.io/badge/{}-YAML-green)](https://github.com/europace/report-api/blob/master/report-api.yml)
 [![Github](https://img.shields.io/badge/-Github-black?logo=github)](https://github.com/europace/report-api)
 
-[![GitHub release](https://img.shields.io/github/v/release/europace/authorization-api)](https://github.com/europace/report-api/releases)
+[![GitHub release](https://img.shields.io/github/v/release/europace/report-api)](https://github.com/europace/report-api/releases)
 [![Pattern](https://img.shields.io/badge/Pattern-Tolerant%20Reader-yellowgreen)](https://martinfowler.com/bliki/TolerantReader.html)
 
 ## Europace-Reports
@@ -45,7 +45,7 @@ Hier am Beispiel des Rohdaten-Report.
 ### Authentifizierung
 Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api), um Zugang zur Report-API zu bekommen.
 
-Welchen Scope du für welchen Report benötigst, siehst du unter [Europace-Reports](#markdown-header-Europace-Reports).
+Welchen Scope du für welchen Report benötigst, siehst du unter [Europace-Reports](https://github.com/europace/report-api#europace-reports).
 
 Das Token muss auf die angefragte `partnerId` zugreifen dürfen (Hierarchie der Plakette)
 
