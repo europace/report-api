@@ -1,0 +1,41 @@
+@startuml
+
+hide footbox
+
+actor Client as client
+participant "Report_API" as rep
+participant "AWS_Bucket" as aws
+
+== Report anfragen ==
+client -> rep: POST .../{reporttyp}
+activate rep
+activate client
+rep --> client: Status:202 ACCEPTED Location:/{reporttyp}/{report-processing-id}
+deactivate rep
+deactivate client
+...
+|||
+
+== Report Status abfragen==
+client -> rep: GET .../{reporttyp}/{report-processing-id}
+activate rep
+activate client
+alt Report wird noch erstellt
+rep --> client: Status:200
+... try again in 20s ...
+else Report fertig zum download
+rep --> client: Status:303 SEE ALSO Location: https://{path-to-file}
+end
+deactivate rep
+deactivate client
+|||
+
+== Reportdaten abholen ==
+client -> aws: GET https://{path-to-file}
+activate aws
+activate client
+aws --> client: Status:200 OK File
+deactivate aws
+deactivate client
+
+@enduml
