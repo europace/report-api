@@ -18,8 +18,8 @@ Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
 
  Name | Endpunkt | benötigter Scope | Inhalts-Beschreibung
  ---- | ---- | ---- | ----
- Rohdaten-Report | ```/rohdaten``` | `reporting:rohdaten:lesen`  | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
-Produktanbieter-Report (:construction: in Arbeit)  | ```/produktanbieter``` | `reporting:produktanbieter:lesen`  | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation |
+ Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
+Produktanbieter-Report (:construction: in Arbeit)  | ```/produktanbieter``` | `report:produktanbieter:lesen`  | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation |
 
 ## Anwendungsfälle
 - Europace-Reports in Dataware-House ETL-Jobs einbinden
