@@ -14,16 +14,56 @@ Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
 [![GitHub release](https://img.shields.io/github/v/release/europace/report-api)](https://github.com/europace/report-api/releases)
 [![Pattern](https://img.shields.io/badge/Pattern-Tolerant%20Reader-yellowgreen)](https://martinfowler.com/bliki/TolerantReader.html)
 
+---
+
+# Dokumentation
+
+<!-- TOC depthFrom:2 -->
+
+- [Europace-Reports](#europace-reports)
+- [Anwendungsfälle](#anwendungsfälle)
+- [API Referenz](#api-referenz)
+    - [Als OpenAPI 3 Spezifikation](#als-openapi-3-spezifikation)
+    - [Als HTML Seite](#als-html-seite)
+- [Schnellstart](#schnellstart)
+- [1. Report anfragen](#1-report-anfragen)
+    - [Authentifizierung](#authentifizierung)
+    - [Anfrage](#anfrage)
+- [2. Report Status abfragen](#2-report-status-abfragen)
+- [3. Report abholen](#3-report-abholen)
+- [Nutzungsbedingungen](#nutzungsbedingungen)
+- [Support](#support)
+
+<!-- /TOC -->
+
+
+---
+
+
 ## Europace-Reports
 
- Name | Endpunkt | benötigter Scope | Inhalts-Beschreibung
- ---- | ---- | ---- | ----
- Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
-Produktanbieter-Report (:construction: in Arbeit)  | ```/produktanbieter``` | `report:produktanbieter:lesen`  | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation |
+| Name                                              | Endpunkt               | benötigter Scope               | Inhalts-Beschreibung                                                                    |
+|---------------------------------------------------|------------------------|--------------------------------|-----------------------------------------------------------------------------------------|
+| Rohdaten-Report                                   | ```/rohdaten```        | `report:rohdaten:lesen`        | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
+| Produktanbieter-Report (:construction: in Arbeit) | ```/produktanbieter``` | `report:produktanbieter:lesen` | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation                      |
 
 ## Anwendungsfälle
 - Europace-Reports in Dataware-House ETL-Jobs einbinden
 - Europace-Reports in Vertriebstools anbieten
+
+
+## API Referenz
+
+### Als OpenAPI 3 Spezifikation
+
+**JSON**
+
+- https://report.api.europace.de/documentation
+
+### Als HTML Seite
+
+- https://europace.github.io/report-api/index.html
+
 
 ## Schnellstart
 
