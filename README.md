@@ -19,13 +19,13 @@ abgerufen werden.
 
 [![YAML](https://img.shields.io/badge/OAS-HTML_Doc-lightblue)](https://europace.github.io/report-api/index.html)
 [![YAML](https://img.shields.io/badge/OAS-YAML-lightgrey)](https://github.com/europace/report-api/blob/master/report-api.yml)
-[![YAML](https://img.shields.io/badge/OAS-JSON-lightgrey)](https://europace.github.io/report-api/index.html)
+[![YAML](https://img.shields.io/badge/OAS-JSON-lightgrey)](https://report.api.europace.de/documentation)
 
-## Anwendungsfälle
+## Anwendungsfälle der API
 - Europace-Reports in Dataware-House ETL-Jobs einbinden
 - Europace-Reports in Vertriebstools anbieten
 
-## Europace-Reports
+## Übersicht Europace-Reports
 Folgende Reports können mit dieser API angerufen werden:
 
  Name | Endpunkt | benötigter Scope | Dateityp | Inhalts-Beschreibung
@@ -47,16 +47,16 @@ Die Arbeitsweise ist bei allen Europace-Reports dieselbe:
 
 ![Tipp](https://img.shields.io/badge/-Tipp-yellow) Damit du unsere APIs und deinen Anwendungsfall schnellstmöglich testen kannst, haben wir eine [Postman-Collection](https://github.com/europace/api-schnellstart) für dich zusammengestellt, mit der du die folgenden Schritte einfach nachvollziehen kannst.
 
-### Beispiel: Rohdaten-Report anfragen
+## Beispiel: Rohdaten-Report anfragen
 
-#### Authentifizierung
+### Authentifizierung
 Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api), um Zugang zur Report-API zu bekommen.
 
-Welchen Scope du für welchen Report benötigst, siehst du unter Europace-Reports.
+Welchen Scope du für welchen Report benötigst, siehst du in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#europace-reports).
 
 Das Token muss auf die angefragte `partnerId` zugreifen dürfen (Hierarchie der Plakette)
 
-#### 1. Report anfragen
+### 1. Report anfragen
 Mit der Anfrage, wird bei Europace die Erzeugung des Report gestartet. Dieser Vorgang kann je nach Komplexität und abgefragtem Zeitraum mehrere Minuten in Anspruch nehmen. Die gültigen Parameter für die Erstellung des Report findest du in der entsprechenden Report-Beschreibung.
 
 Request für Rohdaten-Report:
@@ -79,7 +79,7 @@ Header:
 
 Die Header-Variable `Location` zeigt auf den Endpunkt für den nächsten Schritt: den Report Status abzufragen.
 
-#### 2. Report Status abfragen
+### 2. Report Status abfragen
 
 Dieser Schritt ist für alle Europace-Reports gleich.
 
@@ -109,7 +109,7 @@ Header:
 ```
 Die Header-Variable `Location` zeigt auf die Reportdaten.
 
-#### 3. Report abholen
+### 3. Report abholen
 
 Dieser Schritt ist für alle Europace-Reports gleich.
 
@@ -132,7 +132,7 @@ Header:
 Body:
 <File>
 ```
-Den Dateityp von <file> kann den Europace-Reports entnommen werden.
+Der Dateityp von `<file>` ist in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#europace-reports) beschrieben.
 
 ## Nutzungsbedingungen
 Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt.
