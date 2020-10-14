@@ -16,21 +16,22 @@ Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
 
 ---
 
-# Dokumentation
+<h2>Inhalt</h2>
 
 <!-- TOC depthFrom:2 -->
 
+- [Getting Started](#getting-started)
 - [Europace-Reports](#europace-reports)
-- [Anwendungsfälle](#anwendungsfälle)
-- [API Referenz](#api-referenz)
-    - [Als OpenAPI 3 Spezifikation](#als-openapi-3-spezifikation)
-    - [Als HTML Seite](#als-html-seite)
-- [Schnellstart](#schnellstart)
-- [1. Report anfragen](#1-report-anfragen)
+    - [Anwendungsfälle](#anwendungsfälle)
+- [Dokumentation](#dokumentation)
+    - [OpenAPI 3 Spezifikation](#openapi-3-spezifikation)
     - [Authentifizierung](#authentifizierung)
-    - [Anfrage](#anfrage)
-- [2. Report Status abfragen](#2-report-status-abfragen)
-- [3. Report abholen](#3-report-abholen)
+    - [Beispielaufruf](#beispielaufruf)
+    - [Workflow und UML Sequenzdiagramme](#workflow-und-uml-sequenzdiagramme)
+- [Beispiel: Rohdaten-Report anfragen](#beispiel-rohdaten-report-anfragen)
+    - [1. Report anfragen](#1-report-anfragen)
+    - [2. Report Status abfragen](#2-report-status-abfragen)
+    - [3. Report abholen](#3-report-abholen)
 - [Nutzungsbedingungen](#nutzungsbedingungen)
 - [Support](#support)
 
@@ -39,6 +40,9 @@ Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
 
 ---
 
+## Getting Started
+
+Erste Schritte zur Nutzung der Europace APIs sind [hier](https://docs.api.europace.de/baufinanzierung/schnellstart/) zu finden.
 
 ## Europace-Reports
 
@@ -47,25 +51,49 @@ Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
 | Rohdaten-Report                                   | ```/rohdaten```        | `report:rohdaten:lesen`        | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
 | Produktanbieter-Report (:construction: in Arbeit) | ```/produktanbieter``` | `report:produktanbieter:lesen` | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation                      |
 
-## Anwendungsfälle
+### Anwendungsfälle
 - Europace-Reports in Dataware-House ETL-Jobs einbinden
 - Europace-Reports in Vertriebstools anbieten
 
 
-## API Referenz
+## Dokumentation
 
-### Als OpenAPI 3 Spezifikation
+### OpenAPI 3 Spezifikation
 
 **JSON**
 
 - https://report.api.europace.de/documentation
 
-### Als HTML Seite
+**als HTML Seite**
 
 - https://europace.github.io/report-api/index.html
 
 
-## Schnellstart
+### Authentifizierung
+
+Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api), um Zugang zur Report-API zu bekommen.
+
+Welchen Scope du für welchen Report benötigst, siehst du unter [Europace-Reports](https://github.com/europace/report-api#europace-reports).
+
+Das Token muss auf die angefragte `partnerId` zugreifen dürfen (Hierarchie der Plakette)
+
+### Beispielaufruf
+
+```bash
+# Reportanfrage starten
+curl --location --request POST 'https://report.api.europace.de/rohdaten' \
+  --header 'Authorization: Bearer JW-Token' \
+  --data-raw '{
+      "partnerId": "ABC67",
+      "fromDay": "2020-01-01"
+    }'
+  
+# Status der Reportbearbeitung überprüfen und Ergebnis abrufen
+curl --location --request GET 'https://report.api.europace.de/rohdaten/<report-id>' \
+  --header 'Authorization: Bearer JW-Token' 
+```
+
+### Workflow und UML Sequenzdiagramme 
 
 Die Bearbeitung der Reportanfragen erfolgt asynchron, um Netzwerk-Timeouts bei der Erstellung der Reports zu vermeiden. Auf die Fertigstellung des Reports muss aktiv getestet werden.
 
@@ -79,17 +107,10 @@ Die Arbeitsweise ist bei allen Europace-Reports dieselbe:
 
 ![Tipp](https://img.shields.io/badge/-Tipp-yellow) Damit du unsere APIs und deinen Anwendungsfall schnellstmöglich testen kannst, haben wir eine [Postman-Collection](https://github.com/europace/api-schnellstart) für dich zusammengestellt, mit der du die folgenden Schritte einfach nachvollziehen kannst.
 
-## 1. Report anfragen
-Hier am Beispiel des Rohdaten-Report.
+## Beispiel: Rohdaten-Report anfragen
 
-### Authentifizierung
-Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api), um Zugang zur Report-API zu bekommen.
+### 1. Report anfragen
 
-Welchen Scope du für welchen Report benötigst, siehst du unter [Europace-Reports](https://github.com/europace/report-api#europace-reports).
-
-Das Token muss auf die angefragte `partnerId` zugreifen dürfen (Hierarchie der Plakette)
-
-### Anfrage
 Mit der Anfrage, wird bei Europace die Erzeugung des Report gestartet. Dieser Vorgang kann je nach Komplexität und abgefragtem Zeitraum mehrere Minuten in Anspruch nehmen. Die gültigen Parameter für die Erstellung des Report findest du in der entsprechenden Report-Beschreibung.
 
 Request für Rohdaten-Report:
@@ -117,7 +138,7 @@ Header:
 
 Die Header-Variable `Location` zeigt auf den Endpunkt für den nächsten Schritt: den Report Status abzufragen.
 
-## 2. Report Status abfragen
+### 2. Report Status abfragen
 
 Dieser Schritt ist für alle Europace-Reports gleich.
 
@@ -150,7 +171,7 @@ Header:
 ```
 Die Header-Variable `Location` zeigt auf die Reportdaten.
 
-## 3. Report abholen
+### 3. Report abholen
 
 Dieser Schritt ist für alle Europace-Reports gleich.
 
