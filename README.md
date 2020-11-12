@@ -132,7 +132,7 @@ Header:
 Body:
 <File>
 ```
-Der Dateityp von `<file>` ist in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#europace-reports) beschrieben.
+Der Dateityp von `<file>` ist in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#europace-reports) beschrieben. Um das Öffnen mit Excel zu erleichtern, ist das Encoding UTF-8 mit Byte Order Mark (BOM).
 
 ## Nutzungsbedingungen
 Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt.
