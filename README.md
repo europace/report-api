@@ -28,10 +28,10 @@ abgerufen werden.
 ## Übersicht Europace-Reports
 Folgende Reports können mit dieser API angerufen werden:
 
- Name | Endpunkt | benötigter Scope | Dateityp | Inhalts-Beschreibung
+ Name | Endpunkt | benötigter Scope | Dateityp/Encoding | Inhalts-Beschreibung
  ---- | ---- | ---- | :----: | ---
- Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
-Produktanbieter-Report (:construction: in Arbeit)  | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation |
+ Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
+Produktanbieter-Report (:construction: in Arbeit)  | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv/UTF-8 | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation |
 
 ## Schnellstart
 
@@ -132,7 +132,7 @@ Header:
 Body:
 <File>
 ```
-Der Dateityp von `<file>` ist in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#übersicht-europace-reports) beschrieben.
+Der Dateityp von `<file>` ist in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#übersicht-europace-reports) beschrieben.  Um das Öffnen mit Excel zu erleichtern, ist das Encoding UTF-8 mit Byte Order Mark (BOM).
 
 ## Nutzungsbedingungen
 Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt.
