@@ -47,6 +47,8 @@ Die Arbeitsweise ist bei allen Europace-Reports dieselbe:
 
 ![Tipp](https://img.shields.io/badge/-Tipp-yellow) Damit du unsere APIs und deinen Anwendungsfall schnellstmöglich testen kannst, haben wir eine [Postman-Collection](https://github.com/europace/api-schnellstart) für dich zusammengestellt, mit der du die folgenden Schritte einfach nachvollziehen kannst.
 
+Die Daten des Vortags werden gegen 5:00 Nachts zur Verfügunug stehen.
+
 ## Beispiel: Rohdaten-Report anfragen
 
 ### Authentifizierung
