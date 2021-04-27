@@ -14,7 +14,7 @@ Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
 [![Pattern](https://img.shields.io/badge/Pattern-Tolerant%20Reader-yellowgreen)](https://martinfowler.com/bliki/TolerantReader.html)
 
 ## Dokumentation
-Die aktuellste Open-Api-Specification im json-Format kann jederzeit unter `https://report.api.europace.de/documentation`
+Die aktuellste OpenApi-Spezifikation im json-Format kann jederzeit unter `https://report.api.europace.de/documentation`
 abgerufen werden.
 
 [![YAML](https://img.shields.io/badge/OAS-HTML_Doc-lightblue)](https://europace.github.io/report-api/index.html)
@@ -30,12 +30,12 @@ Folgende Reports können mit dieser API angerufen werden:
 
  Name | Endpunkt | benötigter Scope | Dateityp/Encoding | Inhalts-Beschreibung
  ---- | ---- | ---- | :----: | ---
- Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
+ Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
 Produktanbieter-Report (:construction: in Arbeit)  | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv/UTF-8 | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation |
 
 ## Schnellstart
 
-Der Abruf der Ep2_Reports erfolgt asynchron, um Netzwerk-Timeouts bei der Erstellung der Reports zu vermeiden. Auf die Fertigstellung des Reports muss aktiv getestet werden.
+Der Erstellung der Reports erfolgt asynchron, um Netzwerk-Timeouts bei der Erstellung der Reports zu vermeiden. Auf die Fertigstellung des Reports muss aktiv getestet werden.
 
 Die Arbeitsweise ist bei allen Europace-Reports dieselbe:
 
@@ -49,7 +49,7 @@ Die Arbeitsweise ist bei allen Europace-Reports dieselbe:
 
 Die Daten des Vortags werden gegen 5:00 Nachts zur Verfügunug stehen.
 
-## Beispiel: Rohdaten-Report anfragen
+## Beispiel: Vertriebs-Rohdaten-Report anfragen
 
 ### Authentifizierung
 Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api), um Zugang zur Report-API zu bekommen.
@@ -60,9 +60,9 @@ Welchen Scope du für welchen Report benötigst, siehst du in der [Übersicht Eu
 Es wird immer der Report für die Identität des OAuth-Token geliefert. Um für eine andere Person/Orga einen Report abzurufen, sollte [impersoniert](https://docs.api.europace.de/baufinanzierung/authentifizierung/#wie-authentifiziere-ich-verschiedene-benutzer-mit-einem-client-impersionieren) oder ggf. ein weiterer Client verwendet werden.
 
 ### 1. Report anfragen
-Mit der Anfrage, wird bei Europace die Erzeugung des Report gestartet. Dieser Vorgang kann je nach Komplexität und abgefragtem Zeitraum mehrere Minuten in Anspruch nehmen. Die gültigen Parameter für die Erstellung des Report findest du in der entsprechenden Report-Beschreibung.
+Mit der Anfrage, wird bei Europace die Erzeugung des Reports gestartet. Dieser Vorgang kann je nach Komplexität und abgefragtem Zeitraum mehrere Minuten in Anspruch nehmen. Die gültigen Parameter für die Erstellung des Report findest du in der entsprechenden Report-Beschreibung.
 
-Request für Rohdaten-Report:
+Request für Vertriebs-Rohdaten-Report:
 ```
 curl --location --request POST 'https://report.api.europace.de/rohdaten' \
 --header 'X-Trace-Id: ' \
