@@ -30,7 +30,7 @@ Folgende Reports können mit dieser API angerufen werden:
 
  Name | Endpunkt | benötigter Scope | Dateityp/Encoding | Inhalts-Beschreibung
  ---- | ---- | ---- | :----: | ---
- Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs |
+ Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs.<br>Daten, älter als 2014, werden nicht ausgeliefert. |
 Produktanbieter-Report (:construction: in Arbeit)  | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv/UTF-8 | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation |
 
 ## Schnellstart
