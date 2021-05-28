@@ -57,7 +57,7 @@ Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)
 Welchen Scope du für welchen Report benötigst, siehst du in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#europace-reports).
 
 :warning: **Hinweis** \
-Es wird immer der Report für die Identität des OAuth-Token geliefert. Um für eine andere Person/Orga einen Report abzurufen, sollte [impersoniert](https://docs.api.europace.de/baufinanzierung/authentifizierung/#wie-authentifiziere-ich-verschiedene-benutzer-mit-einem-client-impersionieren) oder ggf. ein weiterer Client verwendet werden. Für den den Produtkanbieteranbieter-Report muss die Produktanbieter-Organisation als Client authentifiziert sein.
+Es wird immer der Report für die Identität des OAuth-Token geliefert. Um für eine andere Person/Orga einen Report abzurufen, sollte [impersoniert](https://docs.api.europace.de/baufinanzierung/authentifizierung/#wie-authentifiziere-ich-verschiedene-benutzer-mit-einem-client-impersionieren) oder ggf. ein weiterer Client verwendet werden. Für den den Produktanbieteranbieter-Report muss die Produktanbieter-Organisation als Client authentifiziert sein.
 
 ### 1. Report anfragen
 Mit der Anfrage, wird bei Europace die Erzeugung des Reports gestartet. Dieser Vorgang kann je nach Komplexität und abgefragtem Zeitraum mehrere Minuten in Anspruch nehmen. Die gültigen Parameter für die Erstellung des Report findest du in der entsprechenden Report-Beschreibung.
