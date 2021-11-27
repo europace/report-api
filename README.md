@@ -1,11 +1,11 @@
 # Report-API
 
-Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
+The Report API can be used to generate and retrieve Europace reports.
 
-![Vertrieb](https://img.shields.io/badge/-Vertrieb-lightblue)
-![Produktanbieter](https://img.shields.io/badge/-Produktanbieter-lightblue)
-![Baufinanzierung](https://img.shields.io/badge/-Baufinanzierung-lightblue)
-![Privatkredit](https://img.shields.io/badge/-Privatkredit-lightblue)
+![advidor](https://img.shields.io/badge/-advidor-lightblue)
+![loanProvider](https://img.shields.io/badge/-loanProvider-lightblue)
+![mortgageLoan](https://img.shields.io/badge/-mortgageLoan-lightblue)
+![consumerLoan](https://img.shields.io/badge/-consumerLoan-lightblue)
 
 [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api)
 [![Github](https://img.shields.io/badge/-Github-black?logo=github)](https://github.com/europace/report-api)
@@ -13,56 +13,56 @@ Mit der Report-API lassen sich Europace-Reports erzeugen und abrufen.
 [![GitHub release](https://img.shields.io/github/v/release/europace/report-api)](https://github.com/europace/report-api/releases)
 [![Pattern](https://img.shields.io/badge/Pattern-Tolerant%20Reader-yellowgreen)](https://martinfowler.com/bliki/TolerantReader.html)
 
-## Dokumentation
-Die aktuellste OpenApi-Spezifikation im json-Format kann jederzeit unter `https://report.api.europace.de/documentation`
-abgerufen werden.
+## Documentation
+The latest OpenApi specification in json format is available at any time at `https://report.api.europace.de/documentation`.
+can be downloaded.
 
 [![YAML](https://img.shields.io/badge/OAS-HTML_Doc-lightblue)](https://europace.github.io/report-api/index.html)
 [![YAML](https://img.shields.io/badge/OAS-YAML-lightgrey)](https://github.com/europace/report-api/blob/master/report-api.yml)
 [![YAML](https://img.shields.io/badge/OAS-JSON-lightgrey)](https://report.api.europace.de/documentation)
 
-## Anwendungsfälle der API
-- Europace-Reports in Dataware-House ETL-Jobs einbinden
-- Europace-Reports in Vertriebstools anbieten
+## API use cases
+- use Europace reports in dataware house ETL jobs
+- provide Europace reports in sales tools
 
-## Übersicht Europace-Reports
-Folgende Reports können mit dieser API angerufen werden:
+## Overview Europace Reports
+The following reports can be called with this API:
 
- Name | Endpunkt | benötigter Scope | Dateityp/Encoding | Inhalts-Beschreibung
- ---- | ---- | ---- | :----: | ---
- Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | alle relevanten Daten von Vorgängen, Anträgen, Bausteinen und Provisionen des Vertriebs.<br>Daten, älter als 2014, werden nicht ausgeliefert. |
-Produktanbieter-Report (:construction: in Arbeit)  | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv/UTF-8 | die wesentlichen Antragsdaten mit Status und Vertriebsorganisation |
+Name | Endpoint | Required Scope | File Type/Encoding | Content Description.
+---- | ---- | ---- | :----: | ---
+Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | all relevant data of Vorgängen, Anträgen, Bausteinen and Provisionen of the advisor<br>Data older than 2014 will not be delivered. |
+Produktanbieter-Report | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv/UTF-8 | the essential application data with state and sales organization |
 
-## Schnellstart
+## Quickstart
 
-Der Erstellung der Reports erfolgt asynchron, um Netzwerk-Timeouts bei der Erstellung der Reports zu vermeiden. Auf die Fertigstellung des Reports muss aktiv getestet werden.
+The report creation is asynchronous to avoid network timeouts during the report creation. Active testing is required for the completion of the report.
 
-Die Arbeitsweise ist bei allen Europace-Reports dieselbe:
+The procedure is the same for all Europace reports:
 
-1. Report anfragen
-2. Report Status abfragen
-3. Report-Daten abholen
+1. request report
+2. query report status
+3. retrieve report data
 
 ![Sequenzdiagramm](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/europace/report-api/master/resources/processing-report-api.iuml?token=AFSAZZEIDC253X3GO74BDNK7R2KOC)
 
-![Tipp](https://img.shields.io/badge/-Tipp-yellow) Damit du unsere APIs und deinen Anwendungsfall schnellstmöglich testen kannst, haben wir eine [Postman-Collection](https://github.com/europace/api-schnellstart) für dich zusammengestellt, mit der du die folgenden Schritte einfach nachvollziehen kannst.
+![Tip](https://img.shields.io/badge/-Tip-yellow) To help you test our APIs and your use case as quickly as possible, we've put together a [Postman Collection](https://github.com/europace/api-schnellstart) for you to easily follow along.
 
-Die Daten des Vortags werden gegen 5:00 Nachts zur Verfügunug stehen.
+The previous day's data will be available around 5:00 am.
 
-## Beispiel: Vertriebs-Rohdaten-Report anfragen
+## Example: Requesting a raw sales data report
 
-### Authentifizierung
-Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api), um Zugang zur Report-API zu bekommen.
+### Authentication
+Please use [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api) to get access to the report API.
 
-Welchen Scope du für welchen Report benötigst, siehst du in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#europace-reports).
+Which scope you need for which report you can see in the [Overview Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#europace-reports).
 
-:warning: **Hinweis** \
-Es wird immer der Report für die Identität des OAuth-Token geliefert. Um für eine andere Person/Orga einen Report abzurufen, sollte [impersoniert](https://docs.api.europace.de/baufinanzierung/authentifizierung/#wie-authentifiziere-ich-verschiedene-benutzer-mit-einem-client-impersionieren) oder ggf. ein weiterer Client verwendet werden.
+:warning: **Note** \.
+The report for the identity of the OAuth token is always supplied. To retrieve a report for another person/orga, [impersonated](https://docs.api.europace.de/baufinanzierung/authentifizierung/#wie-authentifiziere-ich-verschiedene-benutzer-mit-einem-client-impersionieren) or another client should be used if necessary. For the Produktanbieter-Report, the [Produktanbieter](http://localhost:1313/common/glossary/#Produktanbieter) must be authenticated as the client.
 
-### 1. Report anfragen
-Mit der Anfrage, wird bei Europace die Erzeugung des Reports gestartet. Dieser Vorgang kann je nach Komplexität und abgefragtem Zeitraum mehrere Minuten in Anspruch nehmen. Die gültigen Parameter für die Erstellung des Report findest du in der entsprechenden Report-Beschreibung.
+### 1. request report
+With the request, the generation of the report is started at Europace. This process can take several minutes depending on the complexity and the requested time period. The valid parameters for the creation of the report can be found in the corresponding report description.
 
-Request für Vertriebs-Rohdaten-Report:
+Request for Vertriebs-Rohdaten-Report:
 ```
 curl --location --request POST 'https://report.api.europace.de/rohdaten' \
 --header 'X-Trace-Id: ' \
@@ -79,11 +79,11 @@ Header:
   - Location: /rohdaten/{report-processing-id}
 ```
 
-Die Header-Variable `Location` zeigt auf den Endpunkt für den nächsten Schritt: den Report Status abzufragen.
+The header variable `Location` points to the endpoint for the next step: to query the report status.
 
-### 2. Report Status abfragen
+### 2. query report status
 
-Dieser Schritt ist für alle Europace-Reports gleich.
+This step is the same for all Europace reports.
 
 Request:
 ```
@@ -92,7 +92,7 @@ curl --location --request GET 'https://report.api.europace.de/rohdaten/{report-p
 --header 'Authorization: Bearer {access-token}'
 ```
 
-**(a)** Response für den Fall, dass Erstellung des Europace-Report noch in Arbeit ist:
+**(a)** Response if the report is still in progress:
 ```
 Header:
   - Status: 200 OK
@@ -101,23 +101,23 @@ Body:
   "status": "PROCESSING"
 }
 ```
-Bitte in 20s (Empfehlung) erneut abfragen.
+Please query again in 20s (recommendation).
 
-**(b)** Response für den Fall, dass der Europace-Report erstellt wurde:
+**(b)** Response if the report has been created:
 ```
 Header:
   - Status: 303 SEE OTHER
   - Location: https://{path-to-file}
 ```
-Die Header-Variable `Location` zeigt auf die Reportdaten.
+The header variable 'Location' points to the report data.
 
-### 3. Report abholen
+### 3. retrieve report-data
 
-Dieser Schritt ist für alle Europace-Reports gleich.
+This step is the same for all Europace reports.
 
-Die URL, welche auf die Ergebnisdaten zeigt ist nur für einen begrenzten Zeitraum gültig. Jeder, der diese URL besitzt kann auf den Report zugreifen.
+The URL pointing to the result data is only valid for a limited period of time. Anyone who has this URL can access the report.
 
-Beispiel für {path-to-file}:
+Example for {path-to-file}:
 ```
 https://greta-462912489437-eu-central-1.s3.amazonaws.com/prod/{reporttyp}/{report-processing-id}/Ep2_Reports_....zip?X-Amz-Security-Token=...&X-Amz-Signature=...
 ```
@@ -134,10 +134,10 @@ Header:
 Body:
 <File>
 ```
-Der Dateityp von `<file>` ist in der [Übersicht Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#übersicht-europace-reports) beschrieben.  Um das Öffnen mit Excel zu erleichtern, ist das Encoding UTF-8 mit Byte Order Mark (BOM).
+The file type of `<file>` is described in the [Overview Europace Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#übersicht-europace-reports).  To facilitate opening with Excel, the encoding is UTF-8 with Byte Order Mark (BOM).
 
-## Nutzungsbedingungen
-Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt.
+## Terms of use
+The APIs are made available under the following [Terms of Use](https://docs.api.europace.de/nutzungsbedingungen/).
 
 ## Support
-Bei Fragen oder Problemen kannst du dich an devsupport@europace2.de wenden.
+If you have any questions or problems, pls contact devsupport@europace2.de.
