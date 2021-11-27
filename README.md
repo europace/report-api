@@ -57,7 +57,7 @@ Please use [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](h
 Which scope you need for which report you can see in the [Overview Europace-Reports](https://docs.api.europace.de/baufinanzierung/report/report-api/#europace-reports).
 
 :warning: **Note** \.
-The report for the identity of the OAuth token is always supplied. To retrieve a report for another person/orga, [impersonated](https://docs.api.europace.de/baufinanzierung/authentifizierung/#wie-authentifiziere-ich-verschiedene-benutzer-mit-einem-client-impersionieren) or another client should be used if necessary. For the Produktanbieter-Report, the Produktanbieter must be authenticated as the client.
+The report for the identity of the OAuth token is always supplied. To retrieve a report for another person/orga, [impersonated](https://docs.api.europace.de/baufinanzierung/authentifizierung/#wie-authentifiziere-ich-verschiedene-benutzer-mit-einem-client-impersionieren) or another client should be used if necessary. For the Produktanbieter-Report, the [Produktanbieter](http://localhost:1313/common/glossary/#Produktanbieter) must be authenticated as the client.
 
 ### 1. request report
 With the request, the generation of the report is started at Europace. This process can take several minutes depending on the complexity and the requested time period. The valid parameters for the creation of the report can be found in the corresponding report description.
