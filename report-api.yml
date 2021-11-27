@@ -1,320 +1,347 @@
-openapi: "3.0.1"
+---
+openapi: 3.0.1
 info:
-  title: "Report API"
-  description: "Report API bietet die Möglichkeit Reportanfragen an Europace zu stellen"
-  version: "2020-10-09T11:29:41Z"
+  title: Europace Report API
+  description: Report API can deliver reports from Europace.
+  version: '2021-11-26T14:00:12Z'
 servers:
-- url: "https://report.api.europace.de"
+- url: https://report.api.europace.de
 paths:
-  /produktanbieter:
+  "/produktanbieter":
     post:
       parameters:
-      - name: "Authorization"
-        in: "header"
+      - name: Authorization
+        in: header
         required: true
         schema:
-          type: "string"
+          type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/prodapisuXCWKXDXOLFB1"
+              "$ref": "#/components/schemas/prodapisuXCWKXDXOLFB1"
         required: true
       responses:
-        202:
-          description: "202 response"
+        '202':
+          description: 202 response
           headers:
             Location:
               schema:
-                type: "string"
+                type: string
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/prodapimo1HCMULS8O9UK8"
+                "$ref": "#/components/schemas/prodapimo1MYJ7WGUJCSFQ"
+        '400':
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
+        '403':
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimoUYFMABPKNA69"
       security:
       - gretastackapiauthauthorizerEF0F12B5: []
     options:
       responses:
-        204:
-          description: "204 response"
+        '204':
+          description: 204 response
           headers:
             Access-Control-Allow-Origin:
               schema:
-                type: "string"
+                type: string
             Access-Control-Allow-Methods:
               schema:
-                type: "string"
+                type: string
             Access-Control-Allow-Headers:
               schema:
-                type: "string"
+                type: string
           content: {}
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-  /rohdaten:
+  "/rohdaten":
     post:
       parameters:
-      - name: "Authorization"
-        in: "header"
+      - name: Authorization
+        in: header
         required: true
         schema:
-          type: "string"
+          type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/prodapisuHU6WX78PTO1C"
+              "$ref": "#/components/schemas/prodapisuHU6WX78PTO1C"
         required: true
       responses:
-        202:
-          description: "202 response"
+        '202':
+          description: 202 response
           headers:
             Location:
               schema:
-                type: "string"
+                type: string
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/prodapimo1HCMULS8O9UK8"
+                "$ref": "#/components/schemas/prodapimo1MYJ7WGUJCSFQ"
+        '400':
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
+        '403':
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimoUYFMABPKNA69"
       security:
       - gretastackapiauthauthorizerEF0F12B5: []
     options:
       responses:
-        204:
-          description: "204 response"
+        '204':
+          description: 204 response
           headers:
             Access-Control-Allow-Origin:
               schema:
-                type: "string"
+                type: string
             Access-Control-Allow-Methods:
               schema:
-                type: "string"
+                type: string
             Access-Control-Allow-Headers:
               schema:
-                type: "string"
+                type: string
           content: {}
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-  /rohdaten/{reportId}:
+  "/rohdaten/{reportId}":
     get:
       parameters:
-      - name: "reportId"
-        in: "path"
+      - name: reportId
+        in: path
         required: true
         schema:
-          type: "string"
+          type: string
       responses:
-        404:
-          description: "404 response"
-          content: {}
-        200:
-          description: "200 response"
+        '200':
+          description: 200 response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/prodapimo1RRGP2Y2Q1W5K"
-        201:
-          description: "201 response"
+                "$ref": "#/components/schemas/prodapimo1RRGP2Y2Q1W5K"
+        '303':
+          description: 303 response
           headers:
             Location:
               schema:
-                type: "string"
+                type: string
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/prodapimo1WNE0HUD604WT"
-        400:
-          description: "400 response"
-          content: {}
-        500:
-          description: "500 response"
-          content: {}
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-    options:
-      responses:
-        204:
-          description: "204 response"
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: "string"
-            Access-Control-Allow-Methods:
-              schema:
-                type: "string"
-            Access-Control-Allow-Headers:
-              schema:
-                type: "string"
-          content: {}
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-  /documentation:
-    get:
-      parameters:
-      - name: "Authorization"
-        in: "header"
-        required: true
-        schema:
-          type: "string"
-      responses:
-        200:
-          description: "200 response"
-          content: {}
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-    options:
-      responses:
-        204:
-          description: "204 response"
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: "string"
-            Access-Control-Allow-Methods:
-              schema:
-                type: "string"
-            Access-Control-Allow-Headers:
-              schema:
-                type: "string"
-          content: {}
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-  /produktanbieter/{reportId}:
-    get:
-      parameters:
-      - name: "reportId"
-        in: "path"
-        required: true
-        schema:
-          type: "string"
-      responses:
-        404:
-          description: "404 response"
-          content: {}
-        200:
-          description: "200 response"
+                "$ref": "#/components/schemas/prodapimo1MYJ7WGUJCSFQ"
+        '400':
+          description: 400 response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/prodapimo1RRGP2Y2Q1W5K"
-        201:
-          description: "201 response"
+                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
+        '403':
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimoUYFMABPKNA69"
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
+        '500':
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
+      security:
+      - gretastackapiauthauthorizerEF0F12B5: []
+    options:
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  "/documentation":
+    get:
+      responses:
+        '200':
+          description: 200 response
+          content: {}
+    options:
+      responses:
+        '204':
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  "/produktanbieter/{reportId}":
+    get:
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimo1RRGP2Y2Q1W5K"
+        '303':
+          description: 303 response
           headers:
             Location:
               schema:
-                type: "string"
+                type: string
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/prodapimo1WNE0HUD604WT"
-        400:
-          description: "400 response"
-          content: {}
-        500:
-          description: "500 response"
-          content: {}
+                "$ref": "#/components/schemas/prodapimo1MYJ7WGUJCSFQ"
+        '400':
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
+        '403':
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimoUYFMABPKNA69"
+        '404':
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
+        '500':
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
       security:
       - gretastackapiauthauthorizerEF0F12B5: []
     options:
+      parameters:
+      - name: reportId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
-        204:
-          description: "204 response"
+        '204':
+          description: 204 response
           headers:
             Access-Control-Allow-Origin:
               schema:
-                type: "string"
+                type: string
             Access-Control-Allow-Methods:
               schema:
-                type: "string"
+                type: string
             Access-Control-Allow-Headers:
               schema:
-                type: "string"
+                type: string
           content: {}
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-  /:
+  "/":
     options:
       responses:
-        204:
-          description: "204 response"
+        '204':
+          description: 204 response
           headers:
             Access-Control-Allow-Origin:
               schema:
-                type: "string"
+                type: string
             Access-Control-Allow-Methods:
               schema:
-                type: "string"
+                type: string
             Access-Control-Allow-Headers:
               schema:
-                type: "string"
+                type: string
           content: {}
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
 components:
   schemas:
-    prodapimo1WNE0HUD604WT:
-      title: "await Report Response (bei vorhandenem Report)"
-      required:
-      - "job"
-      type: "object"
+    prodapimo1RG270K0PZ0J4:
+      type: object
       properties:
-        result:
-          type: "object"
-          properties:
-            '@uri':
-              type: "string"
-        job:
-          type: "object"
-          properties:
-            status:
-              type: "string"
-    prodapimo1HCMULS8O9UK8:
-      title: "submitResponse"
-      type: "object"
-      properties:
-        job:
-          type: "object"
-          properties:
-            '@uri':
-              type: "string"
+        message:
+          type: string
+        error:
+          type: string
     prodapimo1RRGP2Y2Q1W5K:
-      title: "await Report Response (während der Report noch generiert wird)"
-      type: "object"
+      title: await report response (while the report is still being generated)
+      type: object
       properties:
-        job:
-          type: "object"
-          properties:
-            status:
-              type: "string"
+        status:
+          type: string
+          enum:
+          - PROCESSING
+          - REQUESTED
+    prodapimo1MYJ7WGUJCSFQ:
+      type: string
+    prodapimoUYFMABPKNA69:
+      type: object
+      properties:
+        message:
+          type: string
     prodapisuHU6WX78PTO1C:
-      title: "request Rohdaten-Report"
-      required:
-      - "partnerId"
-      type: "object"
+      title: request Vertriebs-Rohdaten-Report
+      type: object
       properties:
         fromDay:
-          type: "string"
-          description: "Datum im YYYY-MM-DD format. Filterkondition ist \"Datum\"\
-            \ >= $fromDay. Wenn nicht gesetzt, gilt der vorangegangene Tag gesetzt"
-        partnerId:
-          type: "string"
-          description: "Partner ID, dessen Rohdaten exportiert werden."
+          pattern: "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$"
+          type: string
+          description: Date in YYYY-MM-DD format. Filter condition is "Datum" >= $fromDay.
+            If not set, the previous day is considered set.
     prodapisuXCWKXDXOLFB1:
-      title: "request Produktanbieter-Report"
-      required:
-      - "partnerId"
-      type: "object"
+      title: request Produktanbieter-Report
+      type: object
       properties:
         fromDay:
-          type: "string"
-          description: "Datum im YYYY-MM-DD Format. Filterkondition ist \"Datum\"\
-            \ >= $fromDay. Wenn nicht gesetzt, gilt der vorangegangene Tag als gesetzt"
-        partnerId:
-          type: "string"
-          description: "Partner ID, die auch ein Produktanbieter ist, dessen Report\
-            \ exportiert wird."
+          pattern: "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$"
+          type: string
+          description: Date in YYYY-MM-DD format. Filter condition is "Datum" >= $fromDay.
+            If not set, the previous day is considered set.
   securitySchemes:
     gretastackapiauthauthorizerEF0F12B5:
-      type: "apiKey"
-      name: "Authorization"
-      in: "header"
-      x-amazon-apigateway-authtype: "custom"
+      type: apiKey
+      name: Authorization
+      in: header
+      x-amazon-apigateway-authtype: custom
