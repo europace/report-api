@@ -6,7 +6,7 @@ actor Client as client
 participant "Report_API" as rep
 participant "AWS_Bucket" as aws
 
-== Report anfragen ==
+== request report ==
 client -> rep: POST .../{reporttyp}
 activate rep
 activate client
@@ -16,7 +16,7 @@ deactivate client
 ...
 |||
 
-== Report Status abfragen==
+== query report status ==
 client -> rep: GET .../{reporttyp}/{report-processing-id}
 activate rep
 activate client
@@ -30,7 +30,7 @@ deactivate rep
 deactivate client
 |||
 
-== Reportdaten abholen ==
+== retrieve report-data ==
 client -> aws: GET https://{path-to-file}
 activate aws
 activate client
