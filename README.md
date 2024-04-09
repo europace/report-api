@@ -28,11 +28,11 @@ can be downloaded.
 ## Overview Europace Reports
 The following reports can be called with this API:
 
-Name | Endpoint | Required Scope                 | File Type/Encoding | Content Description.
----- | ---- |--------------------------------| :----: | ---
-Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`        | zip/UTF-8 | all relevant data of [Vorgänge, Anträge, Bausteine](https://docs.api.europace.de/common/glossary/) and [Provisionen](https://docs.api.europace.de/common/glossary/) of the advisor<br>Data older than 2014 will not be delivered. |
-Produktanbieter-Report | ```/produktanbieter``` | `report:produktanbieter:lesen` | csv/UTF-8 | the essential data of [Anträge](https://docs.api.europace.de/common/glossary/) with state and [Vertriebsorganisation](https://docs.api.europace.de/common/glossary/) |
-Vertriebsreport | ```/vertriebsreport``` | TODO  | csv/UTF-8 | TODO
+Name | Endpoint | Required Scope | File Type/Encoding | Content Description.
+---- | ---- | ---- | :----: | ---
+Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | all relevant data of [Vorgänge, Anträge, Bausteine](https://docs.api.europace.de/common/glossary/) and [Provisionen](https://docs.api.europace.de/common/glossary/) of the advisor<br>Data older than 2014 will not be delivered. |
+Produktanbieter-Report | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv/UTF-8 | the essential data of [Anträge](https://docs.api.europace.de/common/glossary/) with state and [Vertriebsorganisation](https://docs.api.europace.de/common/glossary/) |
+Vertriebsreport | ```/vertriebsreport``` | ```report:rohdaten:lesen``` | csv/UTF-8 | TODO
 ## Quickstart
 
 The report creation is asynchronous to avoid network timeouts during the report creation. Active testing is required for the completion of the report.
