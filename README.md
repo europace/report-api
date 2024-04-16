@@ -32,7 +32,7 @@ Name | Endpoint | Required Scope | File Type/Encoding | Content Description.
 ---- | ---- | ---- | :----: |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | all relevant data of [Vorgänge, Anträge, Bausteine](https://docs.api.europace.de/common/glossary/) and [Provisionen](https://docs.api.europace.de/common/glossary/) of the advisor<br>Data older than 2014 will not be delivered. |
 Produktanbieter-Report | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv/UTF-8 | the essential data of [Anträge](https://docs.api.europace.de/common/glossary/) with state and [Vertriebsorganisation](https://docs.api.europace.de/common/glossary/)                                                              |
-Vertriebsreport | ```/vertrieb``` | ```report:rohdaten:lesen``` | csv/UTF-8 | the "EUROPACE Report Vertrieb" from Partnermanagement.                                                                                                                                                                            | 
+Vertriebsreport | ```/vertrieb``` | ```report:rohdaten:lesen``` | csv/UTF-8 | the "EUROPACE Report Vertrieb".                                                                                                                                                                            | 
 ## Quickstart
 
 The report creation is asynchronous to avoid network timeouts during the report creation. Active testing is required for the completion of the report.
