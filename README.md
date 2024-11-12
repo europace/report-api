@@ -28,12 +28,13 @@ can be downloaded.
 ## Overview Europace Reports
 The following reports can be called with this API:
 
-Name | Endpoint | Required Scope | File Type/Encoding | Content Description.                                                                                                                                                                                                              
----- | ---- | ---- | :----: |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Vertriebs-Rohdaten-Report | ```/rohdaten``` | `report:rohdaten:lesen`  | zip/UTF-8 | all relevant data of [Vorgänge, Anträge, Bausteine](https://docs.api.europace.de/common/glossary/) and [Provisionen](https://docs.api.europace.de/common/glossary/) of the advisor<br>Data older than 2014 will not be delivered. |
-Produktanbieter-Report | ```/produktanbieter``` | `report:produktanbieter:lesen`  | csv/UTF-8 | the essential data of [Anträge](https://docs.api.europace.de/common/glossary/) with state and [Vertriebsorganisation](https://docs.api.europace.de/common/glossary/)                                                              |
-Vertriebsreport | ```/vertrieb``` | ```report:rohdaten:lesen``` | csv/UTF-8 | the "EUROPACE Report Vertrieb".                                                                                                                                                                            | 
-Smart Facts Vertrieb | ```/smartfactsvertrieb``` | ```report:rohdaten:lesen``` | XLSM | the “EUROPACE Report Vertrieb” with a graphical interface
+Name | Endpoint                         | Required Scope                     | File Type/Encoding | Content Description.                                                                                                                                                                                                              
+---- |----------------------------------|------------------------------------| :----: |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Vertriebs-Rohdaten-Report | ```/rohdaten```                  | `report:rohdaten:lesen`            | zip/UTF-8 | all relevant data of [Vorgänge, Anträge, Bausteine](https://docs.api.europace.de/common/glossary/) and [Provisionen](https://docs.api.europace.de/common/glossary/) of the advisor<br>Data older than 2014 will not be delivered. |
+Produktanbieter-Report | ```/produktanbieter```           | `report:produktanbieter:lesen`     | csv/UTF-8 | the essential data of [Anträge](https://docs.api.europace.de/common/glossary/) with state and [Vertriebsorganisation](https://docs.api.europace.de/common/glossary/)                                                              |
+Vertriebsreport | ```/vertrieb```                  | ```report:rohdaten:lesen```        | csv/UTF-8 | the "EUROPACE Report Vertrieb".                                                                                                                                                                            | 
+Smart Facts Vertrieb | ```/smartfactsvertrieb```        | ```report:rohdaten:lesen```        | XLSM | the “EUROPACE Report Vertrieb” with a graphical interface
+Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produktanbieter:lesen``` | XLSM | the “EUROPACE Produktanbieter Report” with a graphical interface
 
 ## Quickstart
 
