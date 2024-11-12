@@ -34,7 +34,7 @@ Vertriebs-Rohdaten-Report | ```/rohdaten```                  | `report:rohdaten:
 Produktanbieter-Report | ```/produktanbieter```           | `report:produktanbieter:lesen`     | csv/UTF-8 | the essential data of [Anträge](https://docs.api.europace.de/common/glossary/) with state and [Vertriebsorganisation](https://docs.api.europace.de/common/glossary/)                                                              |
 Vertriebsreport | ```/vertrieb```                  | ```report:rohdaten:lesen```        | csv/UTF-8 | the "EUROPACE Report Vertrieb".                                                                                                                                                                            | 
 Smart Facts Vertrieb | ```/smartfactsvertrieb```        | ```report:rohdaten:lesen```        | XLSM | the “EUROPACE Report Vertrieb” with a graphical interface
-Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produktanbieter:lesen``` | XLSM | the “EUROPACE Produktanbieter Report” with a graphical interface
+Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produktanbieter:lesen``` | XLSM | the “EUROPACE Report Produktanbieter” with a graphical interface
 
 ## Quickstart
 
