@@ -35,6 +35,7 @@ Produktanbieter-Report | ```/produktanbieter```           | `report:produktanbie
 Vertriebsreport | ```/vertrieb```                  | ```report:rohdaten:lesen```        | csv/UTF-8 | the "EUROPACE Report Vertrieb".                                                                                                                                                                            | 
 Smart Facts Vertrieb | ```/smartfactsvertrieb```        | ```report:rohdaten:lesen```        | XLSM | the “EUROPACE Report Vertrieb” with a graphical interface
 Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produktanbieter:lesen``` | XLSM | the “EUROPACE Report Produktanbieter” with a graphical interface
+Konditionsmeldungen | ```konditionsmeldungen``` | N/A | csv/UTF-8 | Konditionsmeldungen that are currently known in BaufiSmart
 
 ## Quickstart
 
