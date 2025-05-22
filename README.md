@@ -36,6 +36,7 @@ Vertriebsreport | ```/vertrieb```                  | ```report:rohdaten:lesen```
 Smart Facts Vertrieb | ```/smartfactsvertrieb```        | ```report:rohdaten:lesen```        | XLSM | the “EUROPACE Report Vertrieb” with a graphical interface<br>Data older than 2 years (relative to calling date) will not be delivered.
 Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produktanbieter:lesen``` | XLSM | the “EUROPACE Report Produktanbieter” with a graphical interface
 Konditionsmeldungen | ```konditionsmeldungen``` | N/A | csv/UTF-8 | Konditionsmeldungen that are currently known in BaufiSmart
+Konditionsvergleich | ```konditionsmeldungen``` | N/A | csv.gz/UTF-8 | Konditionsvergleich data, only available for product providers.
 
 ## Quickstart
 
