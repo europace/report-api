@@ -37,6 +37,7 @@ Smart Facts Vertrieb | ```/smartfactsvertrieb```        | ```report:rohdaten:les
 Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produktanbieter:lesen``` | XLSM | the “EUROPACE Report Produktanbieter” with a graphical interface
 Konditionsmeldungen | ```/konditionsmeldungen``` | N/A | csv/UTF-8 | Konditionsmeldungen that are currently known in BaufiSmart
 Konditionsvergleich | ```/konditionsvergleich``` | N/A | csv.gz/UTF-8 | Konditionsvergleich data, only available for product providers.
+Bestandskundenpotential | `/bestandskundenpotential` | N/A | csv/UTF-8 | This shows bausteine, for which a prolongation is possible within the next 5 years.
 
 ## Quickstart
 
