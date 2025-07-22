@@ -38,6 +38,7 @@ Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produ
 Konditionsmeldungen | ```/konditionsmeldungen``` | N/A | csv/UTF-8 | Konditionsmeldungen that are currently known in BaufiSmart
 Konditionsvergleich | ```/konditionsvergleich``` | N/A | csv.gz/UTF-8 | Konditionsvergleich data, only available for product providers.
 Bestandskundenpotential | `/bestandskundenpotential` | N/A | csv/UTF-8 | bausteine, for which a prolongation is possible within the next 5 years.
+Handelsbeziehungen | `/handelsbeziehungen` | report:rohdaten:lesen | csv/UTF-8 | This report shows the trade relations from the Partnermanagement
 
 ## Quickstart
 
