@@ -50,8 +50,6 @@ The procedure is the same for all Europace reports:
 2. query report status
 3. retrieve report data
 
-![Sequenzdiagramm](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/europace/report-api/master/resources/processing-report-api.iuml?token=AFSAZZEIDC253X3GO74BDNK7R2KOC)
-
 ![Tip](https://img.shields.io/badge/-Tip-yellow) To help you test our APIs and your use case as quickly as possible, we've put together a [Postman Collection](https://github.com/europace/api-schnellstart) for you to easily follow along.
 
 The previous day's data will be available around 5:00 am.
