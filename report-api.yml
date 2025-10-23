@@ -1,136 +1,45 @@
----
 openapi: 3.0.1
 info:
   title: Europace Report API
   description: Report API can deliver reports from Europace.
-  version: '2021-11-26T14:00:12Z'
+  version: "2025-09-15T12:27:25Z"
 servers:
-- url: https://report.api.europace.de
+  - url: https://report.api.europace.de
 paths:
-  "/produktanbieter":
-    post:
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              "$ref": "#/components/schemas/prodapisuXCWKXDXOLFB1"
-        required: true
-      responses:
-        '202':
-          description: 202 response
-          headers:
-            Location:
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimo1MYJ7WGUJCSFQ"
-        '400':
-          description: 400 response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
-        '403':
-          description: 403 response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimoUYFMABPKNA69"
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-    options:
-      responses:
-        '204':
-          description: 204 response
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-            Access-Control-Allow-Methods:
-              schema:
-                type: string
-            Access-Control-Allow-Headers:
-              schema:
-                type: string
-          content: {}
-  "/rohdaten":
-    post:
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              "$ref": "#/components/schemas/prodapisuHU6WX78PTO1C"
-        required: true
-      responses:
-        '202':
-          description: 202 response
-          headers:
-            Location:
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimo1MYJ7WGUJCSFQ"
-        '400':
-          description: 400 response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
-        '403':
-          description: 403 response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimoUYFMABPKNA69"
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-    options:
-      responses:
-        '204':
-          description: 204 response
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-            Access-Control-Allow-Methods:
-              schema:
-                type: string
-            Access-Control-Allow-Headers:
-              schema:
-                type: string
-          content: {}
-  "/rohdaten/{reportId}":
+  /partner/{reportId}:
     get:
       parameters:
-      - name: reportId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: 200 response
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/prodapimo1RRGP2Y2Q1W5K"
-        '303':
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
           description: 303 response
           headers:
             Location:
@@ -139,91 +48,508 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/prodapimo1MYJ7WGUJCSFQ"
-        '400':
-          description: 400 response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
-        '403':
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
           description: 403 response
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/prodapimoUYFMABPKNA69"
-        '404':
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
           description: 404 response
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
-        '500':
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /bestandskundenpotential:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisuBIXJDFQXtMFV'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /produktanbieter:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodapisuXCWKXDXOLFB1'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /handelsbeziehungen:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisuTJuPvrWf7AFg'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /konditionsmeldungen:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisuvYO9T1CMrK42'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /mtvreport:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisumxeoPkwjwQZb'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /smartfactsvertrieb:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisu8SlwRsABfGIl'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /smartfactsproduktanbieter:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisudLlkSDntMHho'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /ratevertrieb:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisuaoDnPWBkO3GI'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /rohdaten/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
           description: 500 response
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
-      security:
-      - gretastackapiauthauthorizerEF0F12B5: []
-    options:
-      parameters:
-      - name: reportId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '204':
-          description: 204 response
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-            Access-Control-Allow-Methods:
-              schema:
-                type: string
-            Access-Control-Allow-Headers:
-              schema:
-                type: string
-          content: {}
-  "/documentation":
-    get:
-      responses:
-        '200':
-          description: 200 response
-          content: {}
-    options:
-      responses:
-        '204':
-          description: 204 response
-          headers:
-            Access-Control-Allow-Origin:
-              schema:
-                type: string
-            Access-Control-Allow-Methods:
-              schema:
-                type: string
-            Access-Control-Allow-Headers:
-              schema:
-                type: string
-          content: {}
-  "/produktanbieter/{reportId}":
-    get:
-      parameters:
-      - name: reportId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: 200 response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimo1RRGP2Y2Q1W5K"
-        '303':
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
           description: 303 response
           headers:
             Location:
@@ -232,42 +558,30 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/prodapimo1MYJ7WGUJCSFQ"
-        '400':
-          description: 400 response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
-        '403':
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
           description: 403 response
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/prodapimoUYFMABPKNA69"
-        '404':
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
           description: 404 response
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
-        '500':
-          description: 500 response
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/prodapimo1RG270K0PZ0J4"
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
       security:
-      - gretastackapiauthauthorizerEF0F12B5: []
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
     options:
       parameters:
-      - name: reportId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
-        '204':
+        "204":
           description: 204 response
           headers:
             Access-Control-Allow-Origin:
@@ -280,10 +594,1159 @@ paths:
               schema:
                 type: string
           content: {}
-  "/":
+  /produktanbieter/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /rohdaten:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodapisuHU6WX78PTO1C'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
     options:
       responses:
-        '204':
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /bestandskundenpotential/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /vertrieb:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisuGEQ1rdOJWCnU'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /provisionsclearinggeneric:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisu2SAEJzc26ZCT'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /smartfactsproduktanbieter/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /konditionsmeldungen/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /konditionsvergleich:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisus0mNOuAozBZ9'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /partner:
+    post:
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prodgapisuMJiSRqiZbKpL'
+        required: true
+      responses:
+        "202":
+          description: 202 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /:
+    options:
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /vertrieb/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /konditionsvergleich/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /ratevertrieb/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /handelsbeziehungen/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /mtvreport/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /smartfactsvertrieb/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /provisionsclearinggeneric/{reportId}:
+    get:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RRGP2Y2Q1W5K'
+        "400":
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "422":
+          description: 422 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "500":
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+        "303":
+          description: 303 response
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1MYJ7WGUJCSFQ'
+        "403":
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimoUYFMABPKNA69'
+        "404":
+          description: 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prodapimo1RG270K0PZ0J4'
+      security:
+        - datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5: []
+    options:
+      parameters:
+        - name: reportId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: 204 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content: {}
+  /documentation:
+    get:
+      responses:
+        "200":
+          description: 200 response
+          content: {}
+    options:
+      responses:
+        "204":
           description: 204 response
           headers:
             Access-Control-Allow-Origin:
@@ -298,13 +1761,30 @@ paths:
           content: {}
 components:
   schemas:
-    prodapimo1RG270K0PZ0J4:
+    prodgapisu2SAEJzc26ZCT:
+      title: request Provisionsclearing-Report
       type: object
       properties:
-        message:
+        fromDay:
+          pattern: ^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$
           type: string
-        error:
+          description: Date in YYYY-MM-DD format. Filter condition is "Datum" >= $fromDay. If not set, the previous day is considered set.
+        toDay:
+          pattern: ^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$
           type: string
+          description: Date in YYYY-MM-DD format. Filter condition is "Datum" < $toDay. If not set, the current day is considered set.
+        category:
+          pattern: ^.*$
+          type: string
+          description: Filter
+    prodgapisuTJuPvrWf7AFg:
+      title: request Handelsbeziehungen report
+      type: object
+      properties: {}
+    prodgapisuBIXJDFQXtMFV:
+      title: request Bestandskundenpotential report
+      type: object
+      properties: {}
     prodapimo1RRGP2Y2Q1W5K:
       title: await report response (while the report is still being generated)
       type: object
@@ -312,10 +1792,51 @@ components:
         status:
           type: string
           enum:
-          - PROCESSING
-          - REQUESTED
+            - PROCESSING
+            - REQUESTED
+    prodgapisu8SlwRsABfGIl:
+      title: request Smartfacts-Vertriebs-Report
+      type: object
+      properties: {}
     prodapimo1MYJ7WGUJCSFQ:
       type: string
+    prodgapisuMJiSRqiZbKpL:
+      title: request Partner report
+      type: object
+      properties: {}
+    prodgapisudLlkSDntMHho:
+      title: request Smartfacts Produktanbieter-Report
+      type: object
+      properties: {}
+    prodgapisuGEQ1rdOJWCnU:
+      title: request Vertriebs-Report
+      type: object
+      properties: {}
+    prodapimo1RG270K0PZ0J4:
+      type: object
+      properties:
+        message:
+          type: string
+        error:
+          type: string
+    prodgapisuvYO9T1CMrK42:
+      title: request konditionsmeldungen report
+      type: object
+      properties: {}
+    prodgapisuaoDnPWBkO3GI:
+      title: request Rate Vertriebsreport
+      type: object
+      properties: {}
+    prodgapisus0mNOuAozBZ9:
+      title: request konditionsvergleich report
+      type: object
+      properties:
+        produktArt:
+          type: string
+          description: 'Optional. Valid values: ANNUITAET or FORWARD. If unspecified, both are assumed.'
+          enum:
+            - ANNUITAET
+            - FORWARD
     prodapimoUYFMABPKNA69:
       type: object
       properties:
@@ -326,21 +1847,39 @@ components:
       type: object
       properties:
         fromDay:
-          pattern: "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$"
+          pattern: ^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$
           type: string
-          description: Date in YYYY-MM-DD format. Filter condition is "Datum" >= $fromDay.
-            If not set, the previous day is considered set.
+          description: Date in YYYY-MM-DD format. Filter condition is "Datum" >= $fromDay. If not set, the previous day is considered set.
     prodapisuXCWKXDXOLFB1:
       title: request Produktanbieter-Report
       type: object
       properties:
         fromDay:
-          pattern: "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$"
+          pattern: ^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$
           type: string
-          description: Date in YYYY-MM-DD format. Filter condition is "Datum" >= $fromDay.
-            If not set, the previous day is considered set.
+          description: Date in YYYY-MM-DD format. Filter condition is "Datum" >= $fromDay. If not set, the previous day is considered set.
+    prodgapisumxeoPkwjwQZb:
+      title: request to generic report service
+      type: object
+      properties:
+        fromDay:
+          pattern: ^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$
+          type: string
+          description: Date in YYYY-MM-DD format. Filter condition is "Datum" >= $fromDay. If not set, the previous day is considered set.
+        partnerIdToCreateReportFor:
+          pattern: '[A-Z]{3}[0-9]{2}'
+          type: string
+          description: The partnerId for which the report should be created.
+        toDay:
+          pattern: ^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$
+          type: string
+          description: Date in YYYY-MM-DD format. Filter condition is "Datum" < $toDay. If not set, the current day is considered set.
+        category:
+          pattern: ^.*$
+          type: string
+          description: Filter
   securitySchemes:
-    gretastackapiauthauthorizerEF0F12B5:
+    datagretapipelinestackprodgretastackapiauthauthorizer7F4BB7C5:
       type: apiKey
       name: Authorization
       in: header
