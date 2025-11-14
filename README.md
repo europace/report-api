@@ -39,6 +39,7 @@ Konditionsmeldungen | ```/konditionsmeldungen``` | `report:produktanbieter:lesen
 Konditionsvergleich | ```/konditionsvergleich``` | `report:produktanbieter:lesen` | csv.gz/UTF-8 | Konditionsvergleich data, only available for product providers.
 Bestandskundenpotential | `/bestandskundenpotential` | `report:produktanbieter:lesen` or `report:rohdaten:lesen` | csv/UTF-8 | bausteine, for which a prolongation is possible within the next 5 years.
 Handelsbeziehungen | `/handelsbeziehungen` | ```report:rohdaten:lesen``` | csv/UTF-8 | This report shows the trade relations from the Partnermanagement
+Partner-Report | `/partner` | ```report:rohdaten:lesen``` | csv/UTF-8 | This report shows the partnerdata from the Partnermanagement without inherited values.
 
 ## Quickstart
 
