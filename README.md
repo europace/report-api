@@ -28,18 +28,20 @@ can be downloaded.
 ## Overview Europace Reports
 The following reports can be called with this API:
 
-Name | Endpoint                         | Required Scope                     | File Type/Encoding | Content Description.                                                                                                                                                                                                              
----- |----------------------------------|------------------------------------| :----: |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Vertriebs-Rohdaten-Report | ```/rohdaten```                  | `report:rohdaten:lesen`            | zip/UTF-8 | all relevant data of [Vorgänge, Anträge, Bausteine](https://docs.api.europace.de/common/glossary/) and [Provisionen](https://docs.api.europace.de/common/glossary/) of the advisor<br>Data older than 2014 will not be delivered. |
-Produktanbieter-Report | ```/produktanbieter```           | `report:produktanbieter:lesen`     | csv/UTF-8 | the essential data of [Anträge](https://docs.api.europace.de/common/glossary/) with state and [Vertriebsorganisation](https://docs.api.europace.de/common/glossary/)                                                              |
-Vertriebsreport | ```/vertrieb```                  | ```report:rohdaten:lesen```        | csv/UTF-8 | the "EUROPACE Report Vertrieb".<br>Data older than 2 years (relative to calling date) will not be delivered.                                                                                                                                                                            | 
-Smart Facts Vertrieb | ```/smartfactsvertrieb```        | ```report:rohdaten:lesen```        | XLSM | the “EUROPACE Report Vertrieb” with a graphical interface<br>Data older than 2 years (relative to calling date) will not be delivered.
-Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produktanbieter:lesen``` | XLSM | the “EUROPACE Report Produktanbieter” with a graphical interface
-Konditionsmeldungen | ```/konditionsmeldungen``` | `report:produktanbieter:lesen` or `report:rohdaten:lesen` | csv/UTF-8 | Konditionsmeldungen that are currently known in BaufiSmart
-Konditionsvergleich | ```/konditionsvergleich``` | `report:produktanbieter:lesen` | csv.gz/UTF-8 | Konditionsvergleich data, only available for product providers.
-Bestandskundenpotential | `/bestandskundenpotential` | `report:produktanbieter:lesen` or `report:rohdaten:lesen` | csv/UTF-8 | bausteine, for which a prolongation is possible within the next 5 years.
-Handelsbeziehungen | `/handelsbeziehungen` | ```report:rohdaten:lesen``` | csv/UTF-8 | This report shows the trade relations from the Partnermanagement
-Partner-Report | `/partner` | ```report:rohdaten:lesen``` | csv/UTF-8 | This report shows the partnerdata from the Partnermanagement without inherited values.
+Name | Endpoint                         | Required Scope                     | File Type/Encoding | Content Description. | Data refresh
+---- |----------------------------------|------------------------------------| :----: |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------
+Vertriebs-Rohdaten-Report | ```/rohdaten```                  | `report:rohdaten:lesen`            | zip/UTF-8 | all relevant data of [Vorgänge, Anträge, Bausteine](https://docs.api.europace.de/common/glossary/) and [Provisionen](https://docs.api.europace.de/common/glossary/) of the advisor<br>Data older than 2014 will not be delivered. | daily
+Produktanbieter-Report | ```/produktanbieter```           | `report:produktanbieter:lesen`     | csv/UTF-8 | the essential data of [Anträge](https://docs.api.europace.de/common/glossary/) with state and [Vertriebsorganisation](https://docs.api.europace.de/common/glossary/) | daily
+Vertriebsreport | ```/vertrieb```                  | ```report:rohdaten:lesen```        | csv/UTF-8 | the "EUROPACE Report Vertrieb".<br>Data older than 2 years (relative to calling date) will not be delivered. | daily
+Smart Facts Vertrieb | ```/smartfactsvertrieb```        | ```report:rohdaten:lesen```        | XLSM | the “EUROPACE Report Vertrieb” with a graphical interface<br>Data older than 2 years (relative to calling date) will not be delivered. | daily
+Smart Facts Produktanbieter | ```/smartfactsproduktanbieter``` | ```report:produktanbieter:lesen``` | XLSM | the “EUROPACE Report Produktanbieter” with a graphical interface | daily
+Konditionsmeldungen | ```/konditionsmeldungen``` | `report:produktanbieter:lesen` or `report:rohdaten:lesen` | csv/UTF-8 | Konditionsmeldungen that are currently known in BaufiSmart | hourly
+Konditionsvergleich | ```/konditionsvergleich``` | `report:produktanbieter:lesen` | csv.gz/UTF-8 | Konditionsvergleich data, only available for product providers. | daily
+Bestandskundenpotential | `/bestandskundenpotential` | `report:produktanbieter:lesen` or `report:rohdaten:lesen` | csv/UTF-8 | bausteine, for which a prolongation is possible within the next 5 years. | daily
+Handelsbeziehungen | `/handelsbeziehungen` | ```report:rohdaten:lesen``` | csv/UTF-8 | This report shows the trade relations from the Partnermanagement | weekly (every Sunday)
+Partner-Report | `/partner` | ```report:rohdaten:lesen``` | csv/UTF-8 | This report shows the partnerdata from the Partnermanagement without inherited values. | daily
+
+Please align how often you request new reports with the data refresh frequency shown above to avoid unnecessary requests and costs.
 
 ## Quickstart
 
